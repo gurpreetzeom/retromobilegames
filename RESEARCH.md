@@ -26,3 +26,17 @@ Catalogue sources:
 - https://www.globenewswire.com/news-release/2004/05/31/1847280/0/en/Nokia-3220-camera-phone-Light-Fever.html
 
 Run node tests/phones.cjs for catalogue/start/pause/completion checks. Games run independently in each visitor's browser; no shared multiplayer or server state is implied.
+
+## September 2026 collection expansion
+- **Nokia 5210 (shipped 2002):** orange/charcoal rubber-shell-inspired CSS housing, amber LCD, five menu entries: Snake II, Space Impact, Bantumi, Pairs II, Bumper. Bumper uses our pinball engine with a different monochrome bumper arrangement; this is not an original Bumper table port. Space Impact has the same eight-stage reconstructed campaign as the 3310.
+- **Nokia 7210 (2002):** turquoise/silver rendered housing, shaped keys and four-way navigation ring, colour screen. Bounce has eleven newly authored side-scrolling levels, rings, gated exits, jumping, spikes, moving hazards, checkpoints and three lives. Triple Pop implements the rotating central heap, incoming coloured balls, connected matching groups, increasing speed and an earned outer-ring bonus. Its bonus rules and difficulty progression are simplified, newly written mechanics. Neither game imports original level files, firmware, artwork or binaries.
+- The selector remains scrollable and uses three desktop columns/two mobile columns. All games are independent client-side sessions; no shared online multiplayer is implied.
+
+References checked:
+- https://www.mobilephonemuseum.com/phone-detail/5210 — announcement versus shipping year, shell and five-game catalogue.
+- https://www.manuallib.com/download/pdf0/NOKIA-5210-USER-GUIDE.PDF — Nokia user guide and game names.
+- https://en.wikipedia.org/wiki/Nokia_7210 — Series 40 model, keypad and Bounce/Triple Pop catalogue.
+- https://www.phonearena.com/phones/Nokia-7210_id125 — visual reference of front shell/key layout.
+- https://manualzilla.com/doc/7271228/nokia-9210i-cell-phone-user-manual — Nokia's software guide describes Bounce and Triple Pop mechanics (a different handset edition, not proof of 7210 level fidelity).
+
+Validation: `node tests/phones.cjs` now covers six phone catalogues, all included games' start/draw/pause flows, new game collisions, level gates and progression, Triple Pop connectivity/bonus/loss, power-cycle recovery, and the 5210 finale. `node tests/impact.cjs` retains existing encounter coverage. These automated checks do not establish exact original-game fidelity.

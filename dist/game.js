@@ -45,7 +45,7 @@ function createBoss(){const cfg=sectors[level-1];boss={kind:cfg.boss,x:158,y:48,
 function bossVulnerable(b,y){return b.kind!=='colossus'||(y>=b.y+10&&y<=b.y+16)}
 function specialWeapon(){if(state!=='play'||special<=0)return;special--;beep(160,.15);if(weapon==='wave'){bullets.push({x:ship.x+8,y:16,w:3,h:108,speed:85,damage:5,pierce:true})}else if(weapon==='laser'){bullets.push({x:ship.x+8,y:ship.y+3,w:35,h:3,speed:190,damage:8})}else{bullets.push({x:ship.x+8,y:ship.y+3,w:8,h:3,speed:95,damage:12,homing:true})}}
 function impactUpdate(dt){if(state!=='play')return;const cfg=sectors[level-1];time+=dt;fire-=dt;invul-=dt;transition=Math.max(0,transition-dt);
- if(bossDone){if(transition<=0){if(level===(typeof phoneId!=='undefined'&&phoneId==='3310'?8:sectors.length)){save();state='win'}else{level++;special=Math.min(9,special+1);resetLevel()}}return}
+ if(bossDone){if(transition<=0){if(level===(typeof phoneId!=='undefined'&&['3310','5210'].includes(phoneId)?8:sectors.length)){save();state='win'}else{level++;special=Math.min(9,special+1);resetLevel()}}return}
  terrainScroll+=dt*18;stars.forEach(s=>{s.x-=s.s*dt;if(s.x<0)s.x=W});
  let dx=0,dy=0;if(['4','1','7','left'].some(k=>held.has(k)))dx--;if(['6','3','9','right'].some(k=>held.has(k)))dx++;if(['2','1','3','up'].some(k=>held.has(k)))dy--;if(['8','7','9','down'].some(k=>held.has(k)))dy++;
  ship.x=Math.max(1,Math.min(180,ship.x+dx*58*dt));if(cfg.terrain==='ground'){const jump=dy<0;if(jump&&!jumpLatch&&ship.y>=108){jumpVelocity=-115}jumpLatch=jump;jumpVelocity+=260*dt;ship.y=Math.min(108,ship.y+jumpVelocity*dt);if(ship.y===108)jumpVelocity=0}else ship.y=Math.max(17,Math.min(112,ship.y+dy*58*dt));
