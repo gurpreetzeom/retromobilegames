@@ -115,3 +115,6 @@
 .phone[data-model="3650"] .keypad button[data-key="8"]{left:84.24%;top:38.88%}
 .phone[data-model="3650"] .keypad button[data-key="9"]{left:71.16%;top:20.88%}
 .phone[data-model="3650"] .keypad button[data-key="0"]{left:50.00%;top:14.00%}
+/* The 3650 pad supplies all directions; remove legacy auxiliary arrow targets. */
+.phone[data-model="3650"] .nav-left,.phone[data-model="3650"] .nav-right{display:none}
+@media(min-width:551px){.phone[data-model="3650"]{width:auto}}
