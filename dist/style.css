@@ -32,3 +32,86 @@
 .phone[data-model="7210"] #joystick{display:block;position:absolute;left:32%;top:3%;width:36%;height:84%;border:3px solid #a9c2ba;border-radius:50%;background:radial-gradient(ellipse,#467e86 0 32%,#d4e2d6 35% 58%,#759f9d 62%,#c6dfd7 80%);box-shadow:0 2px 3px #345f65;touch-action:none;z-index:5}.phone[data-model="7210"] #joystick span{width:35%;height:35%;background:linear-gradient(110deg,#397280,#96c5c6);border-color:#4b8891}
 .phone[data-model="7210"] .keypad{left:15%;width:70%;top:68%;height:25%;gap:6px 5px;background:transparent;overflow:visible}.phone[data-model="7210"] .keypad button{border:1px solid #80a6a2;background:linear-gradient(115deg,#b6d2c9,#e3ebe0 45%,#92b6ad);border-radius:48% 12% 48% 12%;box-shadow:inset 0 1px 2px #fff9,0 2px 2px #377583}.phone[data-model="7210"] .keypad button:nth-child(3n){border-radius:12% 48% 12% 48%}.phone[data-model="7210"] .keypad button:nth-child(3n+2){border-radius:25%;background:linear-gradient(110deg,#52949d,#a4c9c3,#649da0)}.phone[data-model="7210"] .keypad b{font-size:5.6cqw}.phone[data-model="7210"] .keypad small{font-size:3cqw}
 @media(max-width:750px){.phone-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:350px){#lobby{padding-inline:12px}.phone-grid{gap:10px}.phone-card strong{font-size:15px}}
+
+/* Additional classic handset geometry. */
+.phone[data-model="3330"]{background:linear-gradient(90deg,#17253d,#425b83 45%,#20304e);border-radius:35% 35% 24% 24% / 12% 12% 9% 9%}
+.phone[data-model="3330"]:before{inset:16% 8% 7%;border-radius:40% 40% 20% 20% / 8% 8% 7% 7%}
+.phone[data-model="3330"] .brand{color:white}
+.phone[data-model="3330"] .keypad{gap:9px;background:transparent}
+.phone[data-model="3330"] .keypad button{border-radius:45%;background:linear-gradient(#f7f7ed,#a7b0ab)}
+.phone[data-model="3330"]{background:linear-gradient(90deg,#182b45,#3e5371 10%,#415773 70%,#1d2c43);border-radius:32% 32% 24% 24% / 10% 10% 8% 8%}
+.phone[data-model="3330"]:before{inset:19% 9% 43%;border-radius:15% 15% 45% 45%;background:linear-gradient(100deg,#7e898e,#c8d1d1 45%,#8e9ca1)}
+.phone[data-model="3330"] .face{top:19%;height:29%;left:15%;width:70%}
+.phone[data-model="3330"] .brand{position:absolute;top:-20%;font-size:6cqw;color:#f0f2ed}
+.phone[data-model="3330"] .glass{border:4px ridge #a5b3b4;box-shadow:inset 0 0 9px #516347;outline:0}
+.phone[data-model="3330"] .top{top:6%;height:8%;left:44%;width:12%}
+.phone[data-model="3330"] .speaker{display:flex;flex-direction:column;gap:5px;align-items:center}
+.phone[data-model="3330"] .speaker i{width:8px;height:4px;background:#102039}
+.phone[data-model="3330"] .controls{top:50%;height:13%}
+.phone[data-model="3330"] .navi{height:45%;align-self:start;border-radius:15% 15% 60% 60%;font-size:10cqw}
+.phone[data-model="3330"] .clear{grid-row:1/3;height:65%;align-self:center;border-radius:40%}
+.phone[data-model="3330"] .rocker{height:80%;align-self:center;border-radius:40%;overflow:hidden}
+.phone[data-model="3330"] .power{position:absolute;top:-375%;left:42%;height:20%;width:17%;border-radius:50%;font-size:3cqw;background:#162437;color:#939caa!important}
+.phone[data-model="3330"] .keypad{top:64%;height:29%;left:13%;width:74%;gap:8px 9px}
+.phone[data-model="3330"] .keypad button{border-radius:50%;border:1px solid #778687}
+.phone[data-model="3330"] .model{color:#b4c4d6}
+.phone[data-model="3650"]{aspect-ratio:.52;background:linear-gradient(90deg,#171e23,#3f494f 20%,#bcc3c5 22%,#e2e5e4 76%,#39474d 80%,#161e25);border-radius:35% 35% 26% 26% / 12% 12% 9% 9%}
+.phone[data-model="3650"]:before{inset:6% 15% 5%;border-radius:40% 40% 20% 20% / 10% 10% 5% 5%}
+.phone[data-model="3650"] .face{top:11%;height:44%;left:17%;width:66%}
+.phone[data-model="3650"] .brand{font-size:5cqw;margin-bottom:7%}
+.phone[data-model="3650"] .glass{border:5px solid #293941;border-radius:3%;padding:2%;background:#c8d8ec;outline:2px solid #aeb8bd}
+.phone[data-model="3650"] .controls{top:57%;height:13%}
+.phone[data-model="3650"] .keypad{top:72%;height:22%;gap:3px;background:transparent}
+.phone[data-model="3650"] .keypad button{border-radius:35%;background:linear-gradient(#eff0ed,#9da6a6)}
+.phone[data-model="3650"] .rocker{grid-column:2;grid-row:1/3;justify-content:space-between;pointer-events:none}
+.phone[data-model="3650"] .rocker button{height:28%;pointer-events:auto;z-index:2;font-size:6cqw}
+.phone[data-model="3650"] .navi{align-self:center;height:44%;font-size:5cqw;color:#253744!important;border:3px ridge #adb9be;border-radius:30%;z-index:3}
+.phone[data-model="3650"] .nav-left{display:block;grid-column:1;grid-row:2}
+.phone[data-model="3650"] .nav-right{display:block;grid-column:3;grid-row:2}
+.phone[data-model="3650"] .clear{grid-column:3;grid-row:1}
+.phone[data-model="3650"] canvas{background:#dce8ef}
+.phone[data-model="3650"]{aspect-ratio:.535;border-radius:42% 42% 32% 32% / 11% 11% 10% 10%;background:linear-gradient(90deg,#0d1317,#273038 12%,#171f24 88%,#080d11);box-shadow:inset 2px 2px 4px #7a858a,inset -3px -3px 6px #070b0c,0 20px 45px #0007}
+.phone[data-model="3650"]:before{inset:5% 12% 5%;border-radius:40% 40% 22% 22% / 9% 9% 8% 8%;background:linear-gradient(100deg,#9ba5a9,#e6e9e8 34%,#c2cacc 73%,#8c979c);box-shadow:inset 1px 1px 4px white,inset -2px -2px 4px #56646d}
+.phone[data-model="3650"] .top{top:8%;left:37%;width:26%}
+.phone[data-model="3650"] .speaker{gap:5px 9px;grid-template-columns:8px 20px 8px;grid-template-rows:3px 3px}
+.phone[data-model="3650"] .face{top:15%;left:18%;width:64%;height:39%}
+.phone[data-model="3650"] .brand{font-size:5cqw;margin-bottom:9%}
+.phone[data-model="3650"] .glass{border:6px solid #1c272b;outline:2px solid #8b999e;border-radius:5%;box-shadow:0 2px 3px #f4f7f5,inset 0 0 6px #253c5544;background:#dce8ef}
+.phone[data-model="3650"] canvas{background:#dce8ef}
+.phone[data-model="3650"] .controls{top:56%;left:10%;width:80%;height:14%;display:block}
+.phone[data-model="3650"] .navi,.phone[data-model="3650"] .rocker{display:none}
+.phone[data-model="3650"] .power,.phone[data-model="3650"] .clear{position:absolute;right:0;width:14%;height:40%;font-size:5cqw;background:linear-gradient(100deg,#151d22,#39444a);border:1px solid #131b20;border-radius:25%;color:#b3bdc0!important;box-shadow:inset 1px 1px 2px #69777d}
+.phone[data-model="3650"] .power{top:0;color:#d56a65!important}
+.phone[data-model="3650"] .clear{bottom:0}
+.phone[data-model="3650"] .soft-left,.phone[data-model="3650"] .soft-right{display:block;position:absolute;bottom:8%;width:28%;height:40%;color:#27749e;font-size:7cqw;border:1px solid #788991;background:linear-gradient(#e5e9e8,#a9b3b7);border-radius:20% 20% 35% 35%}
+.phone[data-model="3650"] .soft-left{left:9%}
+.phone[data-model="3650"] .soft-right{right:15%}
+.phone[data-model="3650"] .keypad{top:71%;height:23%;left:23%;width:54%;gap:2px;background:#536168;border-radius:12% 12% 25% 25% / 5% 5% 20% 20%}
+.phone[data-model="3650"] .keypad button{border-radius:5%;background:linear-gradient(110deg,#aeb9bb,#e4e8e6 45%,#bac5c7);box-shadow:inset 0 -1px 1px white}
+.phone[data-model="3650"] .keypad b{font-size:5cqw}
+.phone[data-model="3650"] .keypad small{font-size:2.8cqw}
+.phone[data-model="3650"] .model{display:none}
+.phone[data-model="3650"] #joystick{display:block;position:absolute;left:37%;top:0;width:30%;height:65%;background:radial-gradient(ellipse,#30383b 0 25%,#141a1e 28% 36%,#89979d 39%,#c5ced0 45%,#a4b1b5 70%,#7b8d96);border:1px solid #798b93;border-radius:32%;z-index:5;touch-action:none;cursor:grab;box-shadow:inset 0 1px 2px #f4f7f7,0 2px 3px #40535d}
+.phone[data-model="3650"]{width:min(96vw,calc(96dvh * .535))}
+/* Silver 3330: same family as 3310, with a dark keypad and screen surround. */
+.phone[data-model="3330"]{background:linear-gradient(100deg,#8c9699,#d9dddd 38%,#adb6b8 80%,#747e84);border-color:#58646b}.phone[data-model="3330"]:before{background:linear-gradient(115deg,#3d4e5a,#6e7e86 45%,#3c4c56);inset:19% 8% 43%}.phone[data-model="3330"] .brand{color:#253742}.phone[data-model="3330"] .model{color:#3b4c55}.phone[data-model="3330"] .keypad button{background:linear-gradient(110deg,#354854,#637681 45%,#283d4b);color:#edf1e8;border-color:#1e3441;box-shadow:inset 0 1px 2px #a6b3bb}.phone[data-model="3330"] .controls button{background:linear-gradient(110deg,#6b7f89,#d2dad7,#82959e)}.phone[data-model="3330"] .top .speaker i{background:#45555e}
+.mini.m3330{background:linear-gradient(110deg,#9ca8ac,#e2e5df,#a9b4b7);border-color:#66767f;border-radius:27px 27px 20px 20px}.mini.m3330 b{background:repeating-linear-gradient(0deg,transparent 0 10px,#b3c0c1 11px 12px),repeating-linear-gradient(90deg,#526976 0 14px,#b3c0c1 15px 16px)}
+/* 2100: frosted blue side rails, pearl face, rounded keys and pale LCD. */
+.phone[data-model="2100"]{aspect-ratio:.46;border-radius:27% 27% 20% 20% / 8% 8% 7% 7%;background:linear-gradient(90deg,#3c79a3,#a4d4e3 9%,#568db0 20%,#759db3 80%,#9bc6dc 93%,#3b6c93);border-color:#6299b7;box-shadow:inset 2px 1px 5px #e2f6ff,inset -3px 0 5px #2c6188,0 20px 45px #0007}.phone[data-model="2100"]:before{inset:3% 10% 4%;background:linear-gradient(110deg,#cbd6d5,#f2f3e8 45%,#b8caca);border-radius:28% 28% 19% 19% / 8% 8% 7% 7%;box-shadow:inset 1px 0 3px #fcfffa,inset -2px 0 5px #829dab}.phone[data-model="2100"] .top{top:7%;left:38%;width:24%;height:4%}.phone[data-model="2100"] .speaker{grid-template-columns:5px 22px 5px;grid-template-rows:4px 4px;gap:5px 5px}.phone[data-model="2100"] .face{top:16%;height:32%;left:16%;width:68%}.phone[data-model="2100"] .brand{font-size:6cqw;color:#30444a;margin-bottom:10%}.phone[data-model="2100"] .glass{border:4px ridge #b8caca;outline:3px solid #7e9da9;box-shadow:0 3px 1px #f4f7e9,inset 0 0 6px #6f8591;background:#c1d2bf}.phone[data-model="2100"] canvas{background:#c1d2bf}.phone[data-model="2100"] .model{color:#536f79}.phone[data-model="2100"] .controls{top:52%;height:12%;left:17%;width:66%;gap:3px}.phone[data-model="2100"] .controls button{border-radius:35%;background:linear-gradient(125deg,#b5c9c9,#f3f6eb 50%,#9ab4bb);border:1px solid #789aa7}.phone[data-model="2100"] .navi{height:70%;align-self:center;font-size:11cqw;border-radius:40%;color:#458097!important}.phone[data-model="2100"] .keypad{left:17%;width:66%;top:67%;height:26%;background:transparent;gap:6px 5px}.phone[data-model="2100"] .keypad button{border-radius:42%;border:1px solid #86a4ae;background:linear-gradient(110deg,#b5cdce,#f2f5e9 45%,#b0c4c5)}.phone[data-model="2100"] .keypad b{font-size:5.5cqw}.phone[data-model="2100"] .keypad small{font-size:3cqw}
+.mini.m2100{border-color:#609fbd;background:linear-gradient(90deg,#90bfd0,#ebefdf 27%,#dee5d8 73%,#85b0c7);border-radius:24px 24px 20px 20px}.mini.m2100 i{background:#c1d2bf}
+/* 3650: broad colour display and a genuine circular number-key arrangement. */
+.phone[data-model="3650"]{aspect-ratio:.49;border-radius:38% 38% 45% 45% / 10% 10% 19% 19%;background:linear-gradient(90deg,#2b4763,#6685a0 12%,#aabcc8 50%,#526f90 90%,#243d59);border-color:#314c65}.phone[data-model="3650"]:before{inset:3% 8% 3%;border-radius:35% 35% 44% 44% / 9% 9% 18% 18%;background:linear-gradient(110deg,#aebdc2,#edf0e7 40%,#b4c5cd 80%,#8ca1b2)}.phone[data-model="3650"] .top{top:6%;left:40%;width:20%;height:4%}.phone[data-model="3650"] .speaker{display:flex;gap:5px}.phone[data-model="3650"] .speaker i{width:4px;height:18px;background:#536d7c}.phone[data-model="3650"] .face{top:13%;left:16%;width:68%;height:36%}.phone[data-model="3650"] .brand{color:#3a4d59;font-size:5.5cqw;margin-bottom:8%}.phone[data-model="3650"] .glass{border:5px solid #526b7e;outline:2px solid #dbe4df;border-radius:4%;background:#dce8ef}.phone[data-model="3650"] .controls{top:51%;left:16%;width:68%;height:11%}.phone[data-model="3650"] .soft-left,.phone[data-model="3650"] .soft-right{top:0;bottom:auto;height:45%;width:30%;font-size:6cqw}.phone[data-model="3650"] .soft-left{left:0}.phone[data-model="3650"] .soft-right{right:0}.phone[data-model="3650"] .clear,.phone[data-model="3650"] .power{bottom:0;top:auto;width:28%;height:40%;background:linear-gradient(110deg,#607c93,#b6c6cc,#718b9e);color:#293f50!important;font-size:4.5cqw}.phone[data-model="3650"] .clear{left:0;right:auto}.phone[data-model="3650"] .power{right:0;color:#984d46!important}.phone[data-model="3650"] #joystick{left:35%;width:30%;height:90%;border-radius:50%;background:radial-gradient(ellipse,#2b4a68 0 26%,#d0dad8 32% 58%,#617d91 62%,#b8cace 90%)}
+.phone[data-model="3650"] .keypad{display:block;top:64%;left:17%;width:66%;height:auto;aspect-ratio:1;border-radius:50%;overflow:visible;gap:0;background:radial-gradient(circle,#a9c0c9 0 25%,#55748e 26% 33%,#b8cbd0 34% 63%,#7d97a9 65% 70%,transparent 72%);box-shadow:inset 0 1px 4px #dce5e4}.phone[data-model="3650"] .keypad button{position:absolute;width:22%;height:18%;border-radius:45%;background:linear-gradient(110deg,#b1c4ca,#eef1e7 45%,#a6bcc8);border:1px solid #6d8799;box-shadow:0 2px 2px #445e72,inset 0 1px #fff8;transform:translate(-50%,-50%);flex-direction:column;gap:0}.phone[data-model="3650"] .keypad button.pressed{transform:translate(-50%,calc(-50% + 2px));box-shadow:inset 0 2px 3px #607f91}.phone[data-model="3650"] .keypad b{font-size:5cqw;line-height:1}.phone[data-model="3650"] .keypad small{font-size:2.2cqw;line-height:1.2}.phone[data-model="3650"] .keypad button[data-key="star"]{left:36%;top:50%;width:24%;height:24%;background:#b4c9cc}.phone[data-model="3650"] .keypad button[data-key="hash"]{left:64%;top:50%;width:24%;height:24%;background:#b4c9cc}
+.mini.m3650{width:91px;border-color:#49657e;background:linear-gradient(110deg,#a9bdc9,#e3e9df 45%,#9fb6c4);border-radius:30px 30px 38px 38px}.mini.m3650 i{height:54px;background:#dce8ef;margin-bottom:8px}.mini.m3650 b{width:51px;height:51px;border-radius:50%;margin:auto;background:radial-gradient(circle,#b5c8ce 0 25%,#536e87 26% 35%,#d5dfdb 37% 57%,#58748c 59% 66%,#c5d5d8 68%);border:2px dotted #486279}
+@media(max-width:550px) and (orientation:portrait){.phone[data-model="3650"]{width:min(96vw,calc(96dvh * .49))}}
+
+.phone[data-model="3650"] .keypad button[data-key="1"]{left:28.84%;top:20.88%}
+.phone[data-model="3650"] .keypad button[data-key="2"]{left:15.76%;top:38.88%}
+.phone[data-model="3650"] .keypad button[data-key="3"]{left:15.76%;top:61.12%}
+.phone[data-model="3650"] .keypad button[data-key="4"]{left:28.84%;top:79.12%}
+.phone[data-model="3650"] .keypad button[data-key="5"]{left:50.00%;top:86.00%}
+.phone[data-model="3650"] .keypad button[data-key="6"]{left:71.16%;top:79.12%}
+.phone[data-model="3650"] .keypad button[data-key="7"]{left:84.24%;top:61.12%}
+.phone[data-model="3650"] .keypad button[data-key="8"]{left:84.24%;top:38.88%}
+.phone[data-model="3650"] .keypad button[data-key="9"]{left:71.16%;top:20.88%}
+.phone[data-model="3650"] .keypad button[data-key="0"]{left:50.00%;top:14.00%}

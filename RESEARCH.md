@@ -40,3 +40,21 @@ References checked:
 - https://manualzilla.com/doc/7271228/nokia-9210i-cell-phone-user-manual — Nokia's software guide describes Bounce and Triple Pop mechanics (a different handset edition, not proof of 7210 level fidelity).
 
 Validation: `node tests/phones.cjs` now covers six phone catalogues, all included games' start/draw/pause flows, new game collisions, level gates and progression, Triple Pop connectivity/bonus/loss, power-cycle recovery, and the 5210 finale. `node tests/impact.cjs` retains existing encounter coverage. These automated checks do not establish exact original-game fidelity.
+
+## Nine-phone collection
+Added Nokia 2100 (2003), 3330 (2001), and 3650 (2003). These retain the same straight-on CSS rendering and keypad/keyboard input system.
+
+- 2100: pearl and blue shell, pale monochrome LCD; Snake II, eight-stage reconstructed Space Impact, and a newly written Link5 adaptation. Link5 uses a 9x9 board, five-in-a-row in four directions, and a computer opponent which prioritizes immediate wins and blocks. This is a rules-based recreation, not an original Nokia AI/board/level port.
+- 3330: silver shell with dark keys, five games; shares the tested 3310/5210 game engines and reconstructed Bumper layout. Does not implement original downloadable WAP game packs.
+- 3650: blue/silver shell, colour display, circular numeric keys arranged counter-clockwise, and a functional navigation pad; includes the shared Snake EX-labelled recreation and numbered Mix Pix adaptation. Bluetooth multiplayer, original image assets and firmware are not implemented.
+
+Catalogue and design references:
+- https://en.wikipedia.org/wiki/Nokia_2100 — launch and Snake II/Space Impact/Link5 catalogue.
+- https://nokia-2100.helpdoc.net/ — Nokia 2100 guide mirror naming the games.
+- https://www.nokiamuseum.net/nokia-3330---2001 — five-game list.
+- https://www.telefonguru.hu/manuals/nokia_3330_en.pdf — Nokia user guide lists all five titles.
+- https://www.eweek.com/mobile/nokia-3650-is-almost-picture-perfect/ — contemporary review confirms Snake EX and Mix Pix.
+- https://en.wikipedia.org/wiki/Nokia_3650 — 2003 release, colour display and circular keypad.
+- https://manualzilla.com/doc/5697247/user-manual-mobile-speak — circular key arrangement, 1 at upper left and 9 at upper right.
+
+Validation: nine phone catalogues and existing engines pass regression checks. Link5 checks cover all four win directions, edge wrapping, computer win/block priority, pause/resume, cursor bounds, draws, retries and a full simulated match. The 3650 navigation-pad puzzle flow and both new monochrome Space Impact finales are also covered. See tests/phones.cjs. New handset visuals and selected game input flows are additionally checked in the deployed browser.

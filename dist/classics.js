@@ -14,6 +14,7 @@ const bounceLevels = [
   {name:'HOME STRETCH',width:790,platforms:[[95,92,48],[204,84,48],[313,76,48],[422,68,48],[531,80,48],[640,92,48]],spikes:[[160,20],[269,20],[378,20],[487,20],[596,20]],rings:[[52,96],[117,77],[226,69],[335,61],[444,53],[553,65],[662,77],[751,96]],saws:[[185,92,10],[510,92,10]]}
 ];
 function classicStart(a){
+  if(extra==='link5'){a.board=Array(81).fill(0);a.cursor=40;a.turn=1;a.message='Your turn';a.winning=[];}
   if(extra==='bounce')loadBounce(a);
   if(extra==='triple'){a.angle=0;a.heap=[];a.incoming=null;a.cool=1;a.popped=0;a.bonus=0;a.serial=0;}
 }
@@ -23,6 +24,7 @@ function loadBounce(a){
 function bounceRespawn(a){a.x=a.checkpoint;a.y=105;a.vx=0;a.vy=0;a.grounded=true;a.camera=0;a.inv=1.2;held.clear();}
 function bounceHit(a){if(a.inv>0)return;a.lives--;beep(100,.1);if(a.lives<=0){state='over';held.clear();}else bounceRespawn(a);}
 function classicInput(k,a){
+  if(extra==='link5')linkInput(k,a);
   if(extra==='bounce'&&['2','up','5','ok'].includes(k)&&a.grounded){a.vy=-142;a.grounded=false;beep(420,.035);}
   if(extra==='triple'&&['5','ok'].includes(k)&&a.bonus>=1){
     const before=a.heap.length;a.heap=a.heap.filter(b=>Math.hypot(b.x,b.y)<20);a.points+=(before-a.heap.length)*5;a.bonus--;beep(820,.08);
@@ -74,6 +76,7 @@ function tripleStep(dt,a){
 }
 function disc(x,y,r,color){c.fillStyle=color;c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.fill();}
 function classicDraw(a){
+  if(extra==='link5')linkDraw(a);
   if(extra==='bounce'){
     c.fillStyle='#e6f0dc';c.fillRect(0,17,W,111);
     const x=v=>Math.round(v-a.camera);
@@ -97,4 +100,62 @@ function classicDraw(a){
     if(a.incoming)ball(96+a.incoming.x,72+a.incoming.y,a.incoming.color);
     text('4 / 6 ROTATE   5 BONUS:'+a.bonus,96,125,7,'center');
   }
+}
+// Link5: a newly written five-in-a-row game, with a local computer opponent.
+function linkLine(board,pos,side){
+  const x=pos%9,y=Math.floor(pos/9);
+  for(const [dx,dy] of [[1,0],[0,1],[1,1],[1,-1]]){
+    const group=[pos];
+    for(const sign of [-1,1])for(let n=1;n<9;n++){
+      const xx=x+dx*n*sign,yy=y+dy*n*sign;
+      if(xx<0||xx>8||yy<0||yy>8||board[yy*9+xx]!==side)break;
+      group.push(yy*9+xx);
+    }
+    if(group.length>=5)return group;
+  }
+  return [];
+}
+function linkPlace(a,pos,side){
+  if(a.board[pos]||state!=='play')return false;
+  a.board[pos]=side;a.moves++;a.winning=linkLine(a.board,pos,side);beep(side===1?550:330,.03);
+  if(a.winning.length){a.message=side===1?'YOU WIN!':'COMPUTER WINS';a.points=side===1?100:0;state=side===1?'win':'over';held.clear();}
+  else if(a.board.every(Boolean)){a.message='DRAW';state='win';held.clear();}
+  else{a.turn=3-side;a.cool=.4;a.message=a.turn===1?'Your turn':'Thinking...';}
+  return true;
+}
+function linkInput(k,a){
+  if(a.turn!==1)return;
+  const dx={left:-1,4:-1,right:1,6:1}[k]||0,dy={up:-1,2:-1,down:1,8:1}[k]||0;
+  const x=Math.max(0,Math.min(8,a.cursor%9+dx)),y=Math.max(0,Math.min(8,Math.floor(a.cursor/9)+dy));a.cursor=y*9+x;
+  if(['5','ok'].includes(k))linkPlace(a,a.cursor,1);
+}
+function linkChoice(a){
+  const empty=a.board.map((v,i)=>v?null:i).filter(i=>i!==null);
+  // Always take a winning move, then block an immediate loss.
+  for(const side of [2,1])for(const p of empty){a.board[p]=side;const wins=linkLine(a.board,p,side).length;a.board[p]=0;if(wins)return p;}
+  let best=-Infinity,choice=empty[0];
+  for(const p of empty){const x=p%9,y=Math.floor(p/9);let value=8-Math.abs(x-4)-Math.abs(y-4);
+    for(const side of [2,1])for(const [dx,dy] of [[1,0],[0,1],[1,1],[1,-1]]){
+      let count=1,open=0;
+      for(const sign of [-1,1])for(let n=1;n<5;n++){
+        const xx=x+dx*n*sign,yy=y+dy*n*sign;if(xx<0||xx>8||yy<0||yy>8)break;
+        const v=a.board[yy*9+xx];if(v===side)count++;else{if(!v)open++;break;}
+      }
+      if(open)value+=(count*count*count)*(side===2?1.1:1)*(open===2?2:1);
+    }
+    if(value>best){best=value;choice=p;}
+  }
+  return choice;
+}
+function linkUpdate(a){if(a.turn===2&&a.cool<=0){const p=linkChoice(a);if(p!==undefined)linkPlace(a,p,2);}}
+function linkDraw(a){
+  const ox=50,oy=22,cell=10;
+  c.strokeStyle=ink;c.lineWidth=.5;
+  for(let i=0;i<=9;i++){c.beginPath();c.moveTo(ox+i*cell,oy);c.lineTo(ox+i*cell,oy+90);c.stroke();c.beginPath();c.moveTo(ox,oy+i*cell);c.lineTo(ox+90,oy+i*cell);c.stroke();}c.lineWidth=1;
+  for(let i=0;i<81;i++){const x=ox+i%9*cell+5,y=oy+Math.floor(i/9)*cell+5;
+    if(a.board[i]===1)disc(x,y,3.5,ink);
+    if(a.board[i]===2){c.strokeStyle=ink;c.beginPath();c.arc(x,y,3.5,0,Math.PI*2);c.stroke();}
+    if(i===a.cursor){c.strokeStyle=ink;c.strokeRect(x-4,y-4,8,8);}
+  }
+  text(a.message,96,124,8,'center');text('YOU',23,43,7,'center');disc(23,52,3,ink);text('CPU',167,43,7,'center');c.strokeStyle=ink;c.beginPath();c.arc(167,52,3,0,Math.PI*2);c.stroke();
 }
