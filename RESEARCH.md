@@ -58,3 +58,20 @@ Catalogue and design references:
 - https://manualzilla.com/doc/5697247/user-manual-mobile-speak — circular key arrangement, 1 at upper left and 9 at upper right.
 
 Validation: nine phone catalogues and existing engines pass regression checks. Link5 checks cover all four win directions, edge wrapping, computer win/block priority, pause/resume, cursor bounds, draws, retries and a full simulated match. The 3650 navigation-pad puzzle flow and both new monochrome Space Impact finales are also covered. See tests/phones.cjs. New handset visuals and selected game input flows are additionally checked in the deployed browser.
+
+## Eleven-phone update: N-Gage and playability review
+- Added original N-Gage (2003) and N-Gage QD (2004), straight-on landscape CSS shells with a central portrait display, left directional pad and right numeric keys. Shared input supports keyboard, pointer and simultaneous held keys. N-Gage includes Snakes and Flo-Boarding tributes; QD includes the Snakes tribute. This is a selected playable catalogue, not the complete commercial N-Gage library or an MMC emulator.
+- Snakes is a newly authored isometric power-path game with six stages, relative turning, boost/slow controls, shield and three lives. Flo-Boarding has three authored slalom courses, ramps, jumps, tricks, trees and gate qualification. Original assets, level maps, 3D engine, physics and multiplayer are not reproduced.
+- Corrected the 3650 circular keypad: navigation pad inside the top of the ring, 1 upper left, 0 upper right; dark display panel and separate softkeys. Hardware-reference inspection corrected the previous evenly distributed circular arrangement.
+- Bounce now renders on a square logical display to keep the ball round. Added acceleration, buffered jumps, solid platform tops/sides/undersides, rolling animation, water, size gates, large-ball buoyancy, smaller-ball sinking and clearance checks. Eleven layouts are still newly authored and are not original Bounce level data.
+- Space Impact mapping: 1100 uses the Plus-labelled nine-sector recreation with the ground section; 2100/3310/3330/5210 share the earlier eight-sector recreation. Menus/help now distinguish ground controls; high scores are stored separately per edition. The first eight reconstructed sectors are shared and do not establish exact original edition fidelity.
+
+References inspected during this review:
+- https://commons.wikimedia.org/wiki/File:Nokia_3650_Front_and_Back.jpg — front-facing keypad and screen geometry.
+- https://commons.wikimedia.org/wiki/File:Nokia-NGage-Front-Flat.jpg
+- https://commons.wikimedia.org/wiki/File:Nokia-NGage-QD-Front-Flat.jpg
+- https://allaboutsymbian.com/images/ngage/manuals/User%20Manual%20snakes%20DLC.pdf — Nokia Snakes manual; power paths, turning, speed and power-up concepts.
+- https://en.wikipedia.org/wiki/N-Gage_(device) — original launch and European Flo-Boarding bundle.
+- https://en.wikipedia.org/wiki/Space_Impact — original and Plus edition associations.
+
+Validation: tests/phones.cjs checks all eleven menus and every included game start/draw/pause flow; new checks complete six Snakes stages and three boarding courses through simulated movement, and cover collisions, shield, pause, jump, tricks, qualification and Bounce buoyancy/undersides. tests/bounce-routes.cjs searches continuous movement routes through every ring and exit without losing a life. tests/impact.cjs checks nine distinct bosses, stage progression, weapons, weak points, jumping, pause and session isolation. These checks establish tested behaviour, not original-game accuracy. Each visitor runs an independent game in their browser; network multiplayer is not provided.
