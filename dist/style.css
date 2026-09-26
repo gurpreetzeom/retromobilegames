@@ -145,3 +145,16 @@ body:has(.phone[data-model^="ngage"]):not(.choosing) .desktop-note{display:block
 .phone[data-model="3650"] .keypad button[data-key="8"]{left:88.09%;top:62.21%}
 .phone[data-model="3650"] .keypad button[data-key="9"]{left:89.25%;top:42.29%}
 .phone[data-model="3650"] .keypad button[data-key="0"]{left:80.64%;top:24.29%}.phone[data-model="ngageqd"]:after{content:'';position:absolute;inset:7% 4%;border-radius:40%;pointer-events:none;background:radial-gradient(ellipse at 0% 50%,transparent 0 14%,#e5e7d5 14.5% 24%,transparent 24.5%),radial-gradient(ellipse at 100% 50%,transparent 0 15%,#e5e7d5 15.5% 23%,transparent 23.5%);z-index:0}.phone[data-model^="ngage"] .face,.phone[data-model^="ngage"] .controls,.phone[data-model^="ngage"] .keypad{z-index:1}
+/* Upright N-Gage presentation requested for portrait play. */
+.phone[data-model="ngage"],.phone[data-model="ngageqd"]{height:min(94dvh,900px);width:min(94vw,47dvh,450px);aspect-ratio:.5;border-radius:32% 32% 34% 34% / 13% 13% 17% 17%}
+.phone[data-model^="ngage"]:before{inset:8% 13% 43%;border-radius:12%;box-shadow:0 0 0 5px #e2e5d4,0 0 0 8px #596962}
+.phone[data-model="ngageqd"]:after{inset:3% 5%;border-radius:32%;background:linear-gradient(90deg,#e5e7d5aa,transparent 12% 88%,#e5e7d5aa)}
+.phone[data-model^="ngage"] .face{top:10%;left:18%;width:64%;height:45%}
+.phone[data-model^="ngage"] .brand{font-size:5.5cqw;margin-bottom:6%}.phone[data-model^="ngage"] .model{font-size:3.6cqw;margin-top:5%}
+.phone[data-model^="ngage"] #joystick{left:37%;top:59%;width:26%;height:13%}
+.phone[data-model^="ngage"] .soft-left,.phone[data-model^="ngage"] .soft-right{top:59%;width:18%;height:5%;font-size:7cqw;border-radius:35%}.phone[data-model^="ngage"] .soft-left{left:15%}.phone[data-model^="ngage"] .soft-right{right:15%}
+.phone[data-model^="ngage"] .clear,.phone[data-model^="ngage"] .power{top:66%;bottom:auto;width:18%;height:5%;font-size:4.5cqw}.phone[data-model^="ngage"] .clear{left:15%;right:auto}.phone[data-model^="ngage"] .power{left:auto;right:15%}
+.phone[data-model^="ngage"] .keypad{left:20%;top:75%;width:60%;height:19%;gap:6% 9%}.phone[data-model^="ngage"] .keypad button{flex-direction:row;gap:3px}.phone[data-model^="ngage"] .keypad b{font-size:5cqw}.phone[data-model^="ngage"] .keypad small{font-size:2.2cqw}
+body:has(.phone[data-model^="ngage"]):not(.choosing) .desktop-note{left:calc(50% + 255px);top:auto;bottom:auto;max-width:245px;text-align:left;font-size:14px}
+@media(max-width:1000px){body:has(.phone[data-model^="ngage"]):not(.choosing) .desktop-note{display:none}}
+.mini.mngage,.mini.mngageqd{width:86px;height:172px;margin:0 auto;padding:16px 13px;border-radius:28px;background:linear-gradient(110deg,#a4b0a2,#d1d7c4,#7b8b7d)}.mini.mngage:before,.mini.mngageqd:before{font-size:8px;margin-bottom:7px}.mini.mngage i,.mini.mngageqd i{width:100%;height:60px}.mini.mngage b,.mini.mngageqd b{left:17px;right:auto;top:124px;width:44px;height:30px}.mini.mngage:after,.mini.mngageqd:after{left:29px;top:91px;font-size:24px}
