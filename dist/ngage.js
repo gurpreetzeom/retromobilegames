@@ -6,8 +6,17 @@ function ngageStart(a){
 }
 function snakesStage(a){
  a.body=[{x:3,y:1},{x:2,y:1},{x:1,y:1}];a.heading=0;a.pendingTurn=0;a.tick=0;a.energy=90;a.shield=0;a.bonus=1;
- a.path=new Set();for(let x=1;x<=8;x++){a.path.add(x+',1');a.path.add(x+',8');}for(let y=2;y<=7;y++){a.path.add('1,'+y);a.path.add('8,'+y);}a.path.delete('3,1');
- a.walls=[];for(let n=0;n<a.stage-1;n++)a.walls.push({x:3+n%3,y:3+Math.floor(n/3)});
+ const corners=[
+  [[1,1],[8,1],[8,8],[1,8]],
+  [[1,1],[8,1],[8,5],[6,5],[6,8],[1,8]],
+  [[1,1],[8,1],[8,8],[5,8],[5,6],[1,6]],
+  [[1,1],[8,1],[8,4],[6,4],[6,8],[1,8],[1,5],[3,5],[3,3],[1,3]],
+  [[1,1],[8,1],[8,8],[6,8],[6,4],[4,4],[4,8],[1,8]],
+  [[1,1],[8,1],[8,3],[6,3],[6,5],[8,5],[8,8],[1,8],[1,6],[3,6],[3,3],[1,3]]
+ ][a.stage-1];
+ a.route=[];for(let i=0;i<corners.length;i++){let [x,y]=corners[i];const [xx,yy]=corners[(i+1)%corners.length];while(x!==xx||y!==yy){a.route.push({x,y});x+=Math.sign(xx-x);y+=Math.sign(yy-y);}}
+ a.path=new Set(a.route.map(p=>p.x+','+p.y));a.path.delete('3,1');
+ a.walls=[];for(let y=3;y<7;y++)for(let x=3;x<7;x++)if(!a.path.has(x+','+y)&&a.walls.length<a.stage-1)a.walls.push({x,y});
 }
 function boardingStage(a){
  a.x=96;a.distance=0;a.jump=0;a.jumpV=0;a.inv=1;a.tricks=0;a.gates=0;a.gateTotal=8;a.course=[];

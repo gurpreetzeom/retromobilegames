@@ -45,7 +45,7 @@ run("selectPhone('3650');joyPointer=1;steerJoystick('down')");assert.equal(run('
 console.log('PASS: Link5 four win directions, no row wrap, AI win/block, pause, occupied turns, bounds, draw/retry and full game; 2100/3330 finales; 3650 pad');
 // N-Gage progression uses real movement around the path, not forced win flags.
 run("selectPhone('ngage');extra='snakes3d';startExtra()");
-run(`for(let n=0;n<250&&state==='play';n++){const a=extraState,h=a.body[0];if((a.heading===0&&h.x===8)||(a.heading===1&&h.y===8)||(a.heading===2&&h.x===1)||(a.heading===3&&h.y===1))extraInput('6');update(.24-Math.min(.06,(a.stage-1)*.012));}`);
+run(`for(let n=0;n<350&&state==='play';n++){const a=extraState,h=a.body[0],i=a.route.findIndex(p=>p.x===h.x&&p.y===h.y),next=a.route[(i+1)%a.route.length],heading=next.x>h.x?0:next.y>h.y?1:next.x<h.x?2:3,turn=(heading-a.heading+4)%4;if(turn)extraInput(turn===1?'6':'4');update(.24-Math.min(.06,(a.stage-1)*.012));}`);
 assert.equal(run('state'),'win','six Snakes stages complete through movement');assert.equal(run('extraState.lives'),3);
 run("startExtra();extraInput('4');update(.24);update(.24)");assert.equal(run('extraState.lives'),2,'wall costs life');
 run("extraInput('7')");assert.equal(run('extraState.bonus'),0);assert.ok(run('extraState.shield>0'));

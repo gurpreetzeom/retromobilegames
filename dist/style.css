@@ -144,4 +144,4 @@ body:has(.phone[data-model^="ngage"]):not(.choosing) .desktop-note{display:block
 .phone[data-model="3650"] .keypad button[data-key="7"]{left:77.45%;top:79.09%}
 .phone[data-model="3650"] .keypad button[data-key="8"]{left:88.09%;top:62.21%}
 .phone[data-model="3650"] .keypad button[data-key="9"]{left:89.25%;top:42.29%}
-.phone[data-model="3650"] .keypad button[data-key="0"]{left:80.64%;top:24.29%}
+.phone[data-model="3650"] .keypad button[data-key="0"]{left:80.64%;top:24.29%}.phone[data-model="ngageqd"]:after{content:'';position:absolute;inset:7% 4%;border-radius:40%;pointer-events:none;background:radial-gradient(ellipse at 0% 50%,transparent 0 14%,#e5e7d5 14.5% 24%,transparent 24.5%),radial-gradient(ellipse at 100% 50%,transparent 0 15%,#e5e7d5 15.5% 23%,transparent 23.5%);z-index:0}.phone[data-model^="ngage"] .face,.phone[data-model^="ngage"] .controls,.phone[data-model^="ngage"] .keypad{z-index:1}
