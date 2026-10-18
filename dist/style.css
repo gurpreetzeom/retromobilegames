@@ -145,3 +145,24 @@ body:has(.phone[data-model^="ngage"]):not(.choosing) .desktop-note{display:block
 .phone[data-model="3650"] .keypad button[data-key="8"]{left:88.09%;top:62.21%}
 .phone[data-model="3650"] .keypad button[data-key="9"]{left:89.25%;top:42.29%}
 .phone[data-model="3650"] .keypad button[data-key="0"]{left:80.64%;top:24.29%}.phone[data-model="ngageqd"]:after{content:'';position:absolute;inset:7% 4%;border-radius:40%;pointer-events:none;background:radial-gradient(ellipse at 0% 50%,transparent 0 14%,#e5e7d5 14.5% 24%,transparent 24.5%),radial-gradient(ellipse at 100% 50%,transparent 0 15%,#e5e7d5 15.5% 23%,transparent 23.5%);z-index:0}.phone[data-model^="ngage"] .face,.phone[data-model^="ngage"] .controls,.phone[data-model^="ngage"] .keypad{z-index:1}
+
+/* UX refresh: accessible lobby and compact gameplay instructions */
+.choosing{min-height:100dvh;background:radial-gradient(circle at 50% 0%,#faf7ec 0%,#e9e6df 65%)}
+#lobby{max-width:1160px;padding:clamp(28px,5vw,72px) clamp(16px,4vw,36px) 48px}
+#lobby header{max-width:650px;margin:0 auto}
+#lobby h1{line-height:1.06;letter-spacing:-.055em}
+#lobby header p{font-size:clamp(15px,2vw,18px)}
+.phone-grid{grid-template-columns:repeat(auto-fit,minmax(195px,1fr));max-width:1050px;gap:16px;margin:32px auto}
+.phone-card{position:relative;min-width:0;padding:26px 14px 22px;border:1px solid #cdd3c8;box-shadow:0 3px 12px #263c2810;background:linear-gradient(145deg,#fffefa,#f3f2eb);border-radius:22px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.phone-card strong{margin-top:13px;font-size:18px}
+.phone-card small{margin:4px 0;color:#58685b}
+.phone-card .game-preview{font-size:12px;line-height:1.5;color:#59695d;min-height:36px;max-width:220px}
+.phone-card .play-cta{margin-top:auto;padding-top:12px;font-size:13px;font-weight:700;color:#245b45}
+.phone-card:hover,.phone-card:focus-visible{transform:translateY(-4px);border-color:#73937b;box-shadow:0 12px 28px #263c2820}
+.phone-card:focus-visible,#phones:focus-visible,#fullscreen:focus-visible{outline:3px solid #1d7858;outline-offset:3px}
+#phones{min-height:44px;min-width:88px;box-shadow:0 3px 12px #0004}
+.desktop-note button{cursor:pointer;min-height:44px}
+@media(max-width:1000px){body:not(.choosing) .desktop-note{display:block;position:fixed;left:auto;right:max(10px,env(safe-area-inset-right));top:max(10px,env(safe-area-inset-top));z-index:6;max-width:165px;width:auto;font-size:11px;line-height:1.35;pointer-events:none}body:not(.choosing) .desktop-note>span,body:not(.choosing) .desktop-note p,body:not(.choosing) .desktop-note small,body:not(.choosing) .desktop-note a{display:none}body:not(.choosing) .desktop-note button{pointer-events:auto;margin:0;padding:9px 10px;border-radius:18px;background:#202a24e8;color:#fff;border:1px solid #ffffff55;font-size:11px;min-height:44px}}
+@media(max-width:550px){.phone-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.phone-card{padding:20px 8px 18px;border-radius:18px}.phone-card .game-preview{font-size:11px;min-height:48px}.phone-card strong{font-size:16px}.phone-card .play-cta{font-size:12px}body:not(.choosing) .desktop-note{top:auto;bottom:max(8px,env(safe-area-inset-bottom));right:8px}}
+@media(max-width:360px){.phone-grid{grid-template-columns:1fr 1fr}.mini{transform:scale(.9);transform-origin:center}.phone-card{padding:14px 5px}}
+@media(prefers-reduced-motion:reduce){.phone-card{transition:none}}
