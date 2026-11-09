@@ -10,7 +10,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"COSTIN Free 7-Day Content Calendar Generator","url":"https://costin.in/free-content-calendar.html","applicationCategory":"BusinessApplication","operatingSystem":"Any modern browser","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Free editable seven-day content plan with caption templates, hashtags and CSV export."}</script>
 </head><body>
 <header><a href="/" class="brand" aria-label="COSTIN homepage">◈ COSTIN<span>.</span></a><a href="/" class="nav">← Back to COSTIN</a></header>
-<main><section class="hero"><span class="eyebrow">FREE SMALL BUSINESS TOOL</span><h1>Plan 7 days of content <em>in 60 seconds.</em></h1><p>Tell us what you sell. Get seven editable post ideas with captions, hashtags and calls to action — ready to adapt to your business.</p><div class="trust"><span>100% free</span><span>No signup</span><span>Download Excel</span><span>Runs in your browser</span></div></section>
+<main><section class="hero"><span class="eyebrow">FREE SMALL BUSINESS TOOL</span><h1>Plan 7 days of content <em>in 60 seconds.</em></h1><p>Tell us what you sell. Get seven industry-aware post ideas with captions, hashtags and calls to action — ready to adapt to your business.</p><div class="trust"><span>100% free</span><span>No signup</span><span>Download Excel</span><span>Runs in your browser</span></div></section>
 <section class="layout"><div class="panel"><h2>Tell us about your business</h2><p class="muted">Your details stay in this browser. We don't send them to a server.</p>
 <form id="form"><div class="field"><label for="business">Business name *</label><input id="business" name="business" maxlength="80" required placeholder="e.g. Bloom Bakery"></div>
 <div class="field"><label for="offering">What do you sell? *</label><input id="offering" name="offering" maxlength="120" required placeholder="e.g. eggless birthday cakes"></div>
@@ -34,6 +34,72 @@ const templates=[
 ['What to expect','Thinking about {offering}? Start by telling {business} your requirements. We can discuss what is available and the next steps before you decide.','Message us to get started','#HowItWorks #SmallBusinessIndia'],
 ['Weekly roundup','That is a wrap on our week at {business}! Thank you for following along. Next week we will share more ideas about {offering}. What should we cover?','Follow for next week','#WeeklyRoundup #SupportSmallBusiness']
 ];
+
+const industryPlans={
+mobile:[
+['Protect the screen','Your phone goes everywhere with you. A well-fitted {offering} can help reduce everyday surface scratches. At {business}, ask us about fit for your exact phone model.','Ask about your phone model','#ScreenGuard #PhoneAccessories'],
+['Choose the right fit','Not every screen protector fits every phone. Before buying, check your device model, camera cut-outs and case compatibility. {business} can help you compare options.','Message your phone model','#ScreenProtector #PhoneCare'],
+['Installation close-up','A clean screen and careful alignment matter when fitting a protector. Show a short installation clip from {business} so customers can see the process.','Watch our installation process','#ScreenGuardInstallation #PhoneTips'],
+['Protection myth','A screen guard can help with everyday scratches, but it cannot make a phone unbreakable. Pair your protector with a suitable case and careful handling.','Ask us about protection options','#PhoneProtection #TechTips'],
+['Customer question','Tempered glass or a flexible film? Each has different feel and fit considerations. Tell {business} your phone model and what matters to you.','Tell us your preference','#TemperedGlass #MobileAccessories'],
+['Care tips','Keep your phone screen clean with a soft microfiber cloth. Avoid harsh cleaners unless your device maker recommends them. Small habits help keep your display looking good.','Save this tip','#ScreenCleaning #PhoneCareTips'],
+['Weekly phone check','This week, check your screen protector for lifting edges, chips or poor fit. If you need a replacement for {offering}, {business} can help you check available options.','Ask about availability','#PhoneMaintenance #ScreenGuard']
+],
+food:[
+['What is on the menu','Craving something tasty? At {business}, we offer {offering}. Tell us your favourite flavours and we will help you explore the menu.','Ask for the menu','#FoodLovers #LocalEats'],
+['Freshness behind the scenes','Show a real behind-the-scenes moment from preparing {offering} at {business}. A quick prep video helps customers see what goes into their order.','See how we prepare it','#KitchenStories #FoodBusiness'],
+['Pairing idea','What would you pair with {offering}? Share your favourite drink, side or snack combination and inspire someone else to try it.','Comment your pairing','#FoodPairing #MenuIdeas'],
+['Ordering FAQ','Planning an order from {business}? Ask about portion sizes, ingredients and availability before you choose. We are happy to clarify.','Message your questions','#FoodFAQ #OrderTips'],
+['Customer choice','If you could customise {offering}, what would you choose? Tell us your preferred flavour, spice level or add-on where available.','Vote in comments','#FoodPoll #CustomerChoice'],
+['Food photo idea','Take a close-up photo of a freshly prepared {offering} in natural light. Add a simple caption explaining what makes it appealing without inventing claims.','Explore our menu','#FoodPhotography #SmallBusiness'],
+['Weekend cravings','Planning a treat this weekend? Keep {business} in mind for {offering}. Check our current menu and availability before ordering.','Ask what is available','#WeekendFood #LocalFood']
+],
+beauty:[
+['Meet the service','At {business}, we offer {offering}. Choosing a beauty or grooming service starts with your preferences and comfort. Tell us the look you have in mind.','Ask about the service','#BeautyStudio #SelfCare'],
+['Before your appointment','Before booking {offering}, share your goals, relevant sensitivities and any questions with the professional. Clear expectations make consultations easier.','Ask about consultation','#BeautyTips #SalonCare'],
+['Behind the chair','Show a real, consented behind-the-scenes clip of how {business} prepares its workspace and tools for {offering}.','See our process','#SalonBehindTheScenes #BeautyWork'],
+['Style inspiration','Looking for inspiration for {offering}? Save a few reference photos and discuss what suits your preferences and maintenance routine.','Share your inspiration','#StyleIdeas #BeautyInspo'],
+['Common questions','How long does {offering} take and what aftercare may be needed? Ask {business} for service-specific details before your appointment.','Send your questions','#SalonFAQ #BeautyAdvice'],
+['Aftercare matters','After {offering}, follow the care guidance given by your qualified professional. Ask what products or routines are appropriate for you.','Ask for aftercare advice','#Aftercare #BeautyCare'],
+['Your next look','Thinking about a new look? Tell {business} what you would like to change, and ask about suitable {offering} options.','Enquire about availability','#NewLook #LocalSalon']
+],
+clothing:[
+['Style spotlight','Today we are highlighting {offering} at {business}. Think about where you would wear it and how you would style it with pieces you already own.','Ask about available styles','#StyleSpotlight #FashionFinds'],
+['Size and fit','When shopping for {offering}, compare measurements rather than relying on size labels alone. Ask {business} for the available size chart.','Request sizing details','#FitGuide #ClothingTips'],
+['Outfit idea','Try styling {offering} with a simple neutral base and one accessory. Share your favourite colour combination with us.','Comment your colour','#OutfitIdeas #EverydayStyle'],
+['Fabric details','Fabric feel, care instructions and fit all matter. Before choosing {offering}, ask {business} what material and care information is available.','Ask about fabric','#FabricCare #FashionTips'],
+['Mix and match','One piece, multiple looks: show two ways to style {offering} using real items from your collection. Avoid claiming stock you do not have.','Explore styling options','#MixAndMatch #WardrobeIdeas'],
+['Care tip','Check the care label before washing or ironing {offering}. Following the garment instructions can help maintain its appearance.','Save this care tip','#ClothingCare #StyleTips'],
+['Weekend style','Planning your weekend outfit? Explore {offering} from {business} and ask which sizes or colours are currently available.','Check availability','#WeekendStyle #ShopLocal']
+],
+services:[
+['What we help with','At {business}, we provide {offering} for {audience}. Tell us what you need so we can explain the available service options.','Describe your requirement','#ServiceBusiness #LocalServices'],
+['Before you book','Before booking {offering}, clarify the scope, expected timeline and what information the provider needs from you.','Ask for service details','#BookingTips #ServiceGuide'],
+['How the process works','Show the actual steps your team follows for {offering}: enquiry, assessment, work and follow-up where applicable. Keep the explanation accurate.','Ask about our process','#HowItWorks #ServiceProcess'],
+['Questions to ask','What is included in {offering}? Are there any exclusions or preparation requirements? {business} welcomes clear questions before you decide.','Send your questions','#ServiceFAQ #CustomerTips'],
+['Behind the work','Share a genuine photo of your tools, workspace or team preparing for {offering}, with permission from anyone pictured.','See our approach','#BehindTheScenes #LocalProfessionals'],
+['What customers value','When choosing {offering}, which matters most to you: clarity, scheduling or communication? Tell {business} what you value.','Vote in comments','#CustomerFeedback #ServiceQuality'],
+['Get started','Need help with {offering}? Share your requirements with {business} and ask about the next available steps.','Message us to enquire','#BookAService #LocalBusiness']
+],
+education:[
+['Learning goal','What would you like to achieve through {offering}? At {business}, we encourage learners to start with one clear, achievable goal.','Share your learning goal','#LearningGoals #Education'],
+['Study tip','A short, consistent practice routine can be easier to maintain than an occasional long session. Try setting aside time for {offering} this week.','Save this study tip','#StudyTips #LearningRoutine'],
+['Inside a lesson','Show a genuine example of a lesson activity or resource used for {offering} at {business}, without sharing student information.','Ask about the approach','#ClassroomIdeas #LearnTogether'],
+['Course FAQ','Considering {offering}? Ask about topics covered, schedule, prerequisites and learning materials before enrolling.','Request course details','#CourseFAQ #SkillBuilding'],
+['Practice challenge','Try explaining one concept you learned this week in your own words. Teaching an idea back can reveal what you understand.','Share what you learned','#PracticeChallenge #LearnEveryDay'],
+['Learning support','Everyone learns at a different pace. Ask {business} what support or feedback options are available for {offering}.','Ask a question','#LearningSupport #EducationTips'],
+['Plan next week','Pick one topic to revisit next week and set a realistic practice target. If you are exploring {offering}, ask about the next steps.','Enquire about classes','#WeeklyLearning #StudyPlan']
+]
+};
+function chooseIndustry(offering,business){const t=(offering+' '+business).toLowerCase();const rules=[
+['mobile',/screen\s*(guard|protector)|tempered\s*glass|phone\s*(case|cover|accessor)|mobile\s*(accessor|repair)|smartphone|screen\s*film/],
+['food',/cafe|coffee|tea|bakery|cake|restaurant|pizza|burger|sandwich|snack|food|tiffin|catering|biryani|sweets|chocolate/],
+['beauty',/salon|spa|makeup|haircut|hair\s*styling|facial|nail|grooming|beauty|skincare|skin\s*care|barber/],
+['clothing',/clothing|apparel|fashion|kurti|saree|dress|t.shirt|shirt|jeans|boutique|garment|footwear|shoes/],
+['education',/tuition|tutor|coaching|course|class|training|school|education|learn|spoken\s*english|exam\s*prep/],
+['services',/repair|cleaning|plumb|electrician|consult|photograph|design|agency|accounting|tax\s*service|home\s*service|installation/]
+];return (rules.find(([id,re])=>re.test(t))||[])[0]||'general'}
+
 const clean=s=>String(s||'').replace(/[\r\n\t]+/g,' ').trim();
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const csvSafe=s=>{let v=String(s??'');return /^[\s\u200b-\u200d]*[=+@\-]/.test(v)?"'"+v:v};
@@ -43,10 +109,11 @@ function generate(e){e.preventDefault();const business=clean($('business').value
 if(!business||!offering){$('error').textContent='Please enter your business name and what you sell.';return}
 $('error').textContent='';const today=new Date();today.setHours(12,0,0,0);
 const voice=tone==='professional'?'Professional':tone==='playful'?'Playful':'Friendly';
-current=templates.map(([theme,body,cta,tags],i)=>{const d=new Date(today);d.setDate(today.getDate()+i);const date=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');let caption=body.replaceAll('{business}',business).replaceAll('{offering}',offering).replaceAll('{audience}',audience);if(tone==='playful')caption='✨ '+caption;return{day:i+1,date,theme,platform,voice,caption,hashtags:tags,cta,status:'Draft'}});
+const industry=chooseIndustry(offering,business);const selected=industryPlans[industry]||templates;
+current=selected.map(([theme,body,cta,tags],i)=>{const d=new Date(today);d.setDate(today.getDate()+i);const date=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');let caption=body.replaceAll('{business}',business).replaceAll('{offering}',offering).replaceAll('{audience}',audience);if(tone==='playful')caption='✨ '+caption;return{day:i+1,date,theme,platform,voice,caption,hashtags:tags,cta,status:'Draft'}});
 $('output').innerHTML=current.map(r=>'<article class="day"><div class="daytop"><span class="tag">DAY '+r.day+' · '+esc(r.theme)+'</span><span class="muted">'+esc(r.date)+'</span></div><h3>'+esc(r.theme)+'</h3><p>'+esc(r.caption)+'</p><p class="hashtags">'+esc(r.hashtags)+'</p><p><strong>CTA:</strong> '+esc(r.cta)+' · '+esc(r.platform)+'</p></article>').join('');
 $('empty').hidden=true;$('output').hidden=false;$('download').hidden=false;$('copy').hidden=false;
-if(typeof gtag==='function')gtag('event','free_calendar_generated',{tool_name:'7day_calendar'});$('output').scrollIntoView({behavior:'smooth',block:'start'});
+if(typeof gtag==='function')gtag('event','free_calendar_generated',{tool_name:'7day_calendar',content_category:industry});$('output').scrollIntoView({behavior:'smooth',block:'start'});
 }
 $('form').addEventListener('submit',generate);
 
