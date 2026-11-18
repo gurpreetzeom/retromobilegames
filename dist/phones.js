@@ -1,7 +1,7 @@
 'use strict';
 // Browser recreations, not firmware emulation or verified original level data.
 const phones={2100:{year:2003,games:['Snake II','Space Impact','Link5'],ids:['snake','impact','link5']},3330:{year:2001,games:['Snake II','Space Impact','Bantumi','Pairs II','Bumper'],ids:['snake','impact','bantumi','pairs','pinball']},3650:{year:2003,games:['Snake EX recreation','Mix Pix'],ids:['snake','mix']},5210:{year:2002,games:['Snake II','Space Impact','Bantumi','Pairs II','Bumper'],ids:['snake','impact','bantumi','pairs','pinball']},7210:{year:2002,games:['Bounce','Triple Pop'],ids:['bounce','triple']},1100:{year:2003,games:['Space Impact +','Snake II'],ids:['impact','snake']},3310:{year:2000,games:['Snake II','Space Impact','Bantumi','Pairs II'],ids:['snake','impact','bantumi','pairs']},6600:{year:2003,games:['Snake EX recreation','Mix Pix'],ids:['snake','mix']},3220:{year:2004,games:['Club Pinball','Dance Delight','Phantom Spider'],ids:['pinball','dance','spider']}};
-phones['1110']={year:2005,games:['Snake II recreation','Space Impact recreation'],ids:['snake','impact']};
+phones['1110']={year:2005,games:['COSTIN Snake tribute','COSTIN Space Shooter'],ids:['snake','impact']};
 phones.ngage={year:2003,games:['Snakes tribute','Flo-Boarding tribute'],ids:['snakes3d','boarding']};
 phones.ngageqd={year:2004,games:['Snakes tribute'],ids:['snakes3d']};
 const phoneName=id=>id==='ngage'?'N-Gage':id==='ngageqd'?'N-Gage QD':id;
